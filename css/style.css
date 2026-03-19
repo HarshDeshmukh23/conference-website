@@ -455,5 +455,5 @@ footer{background:var(--text);padding:3rem 1.5rem 1.8rem}
   .footer-grid{grid-template-columns:1fr}
   .hero-logos{gap:1rem}
   .logo-img-wrap{width:72px;height:72px}
-  #scroll-top-btn{right:1rem;bottom:calc(6rem + env(safe-area-inset-bottom, 0px));width:42px;height:42px}
+  #scroll-top-btn{right:1rem;bottom:calc(4.75rem + env(safe-area-inset-bottom, 0px));width:42px;height:42px}
 }
