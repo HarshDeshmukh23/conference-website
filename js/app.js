@@ -67,15 +67,20 @@ function goSection(id) {
 }
 
 function closeMob() {
-  document.getElementById('mobile-nav').classList.remove('open');
-  document.querySelector('.hamburger')?.classList.remove('open');
+  setMobState(false);
 }
 
 function toggleMob() {
   const mobileNav = document.getElementById('mobile-nav');
+  setMobState(!mobileNav.classList.contains('open'));
+}
+
+function setMobState(isOpen) {
+  const mobileNav = document.getElementById('mobile-nav');
   const hamburger = document.querySelector('.hamburger');
-  const isOpen = mobileNav.classList.toggle('open');
+  mobileNav?.classList.toggle('open', isOpen);
   hamburger?.classList.toggle('open', isOpen);
+  hamburger?.setAttribute('aria-expanded', String(isOpen));
 }
 
 window.addEventListener('hashchange', route);
@@ -407,7 +412,7 @@ document.getElementById('navbar').innerHTML = `
       <li><a href="#venue" data-nav="venue" onclick="event.preventDefault(); goSection('venue')">Venue</a></li>
       <li><a href="#site-footer" data-nav="contact" onclick="event.preventDefault(); goSection('site-footer')">Contact</a></li>
     </ul>
-    <div class="hamburger" onclick="toggleMob()">
+    <div class="hamburger" onclick="toggleMob()" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </div>
   </div>`;
@@ -461,4 +466,9 @@ document.getElementById('site-footer').innerHTML = `
 /* Navbar scroll shadow */
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+  document.getElementById('scroll-top-btn')?.classList.toggle('show', window.scrollY > 300);
+});
+
+document.getElementById('scroll-top-btn')?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
