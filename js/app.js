@@ -24,6 +24,21 @@ function getHash() { return location.hash.replace(/^#\/?/, ''); }
 let navObserver;
 let selectedSectionId = '';
 
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  if (id === 'home') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  const nav = document.getElementById('navbar');
+  const navOffset = (nav ? nav.offsetHeight : 0) + 16;
+  const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+}
+
 // Navigate to a subpage (changes hash)
 function goPage(page) {
   selectedSectionId = '';
@@ -42,13 +57,11 @@ function goSection(id) {
     location.hash = '#/';
     setTimeout(() => {
       initScrollSpy();
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection(id);
     }, 450);
   } else {
     initScrollSpy();
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection(id);
   }
   closeMob();
 }
@@ -98,8 +111,7 @@ async function route() {
     // If hash points to a section (e.g. #/about), scroll to it
     if (h && h !== 'home') {
       setTimeout(() => {
-        const el = document.getElementById(h);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        scrollToSection(h);
       }, 80);
     }
     if (!selectedSectionId) {
@@ -188,12 +200,13 @@ async function homePage(app) {
       <div class="welcome-grid">
         <div>
           <span class="sec-eyebrow">About the Conference</span>
-          <h2 class="sec-title">Welcome To <span class="blue">ICARIES</span> 2026</h2>
+          <h2 class="sec-title">Welcome To ICARIES Conference 2026</h2>
           <div class="sec-bar"></div>
           <div class="welcome-text">
-            <p>We are delighted to invite you to the 2<sup>nd</sup> International Conference on Automation and Resilient Innovative Expert System (ICARIES), scheduled from <strong>September 8–10, 2026</strong>, hosted by Prof. Ram Meghe Institute of Technology &amp; Research, Badnera-Amravati, Maharashtra (India).</p>
-            <p>ICARIES provides a dynamic platform for researchers, academics, industry professionals, and policymakers to exchange ideas, present their latest research findings, and explore innovative solutions.</p>
-            <div class="welcome-quote">ICARIES 2026 is organized in hybrid mode — delegates may attend physically or virtually. All accepted papers will be submitted to the <strong>ICARIES Xplore</strong> digital library.</div>
+            <p>We are delighted to invite you to the 2<sup>nd</sup> International Conference on Intelligent Computing and Sustainable Innovation in Technology (ICARIES), scheduled to take place from September 8th to 10th, 2026. Hosted by Silicon University in Odisha, India, this conference promises to be a pivotal event for professionals and enthusiasts in the fields of technology, engineering, and innovation.</p>
+            <p>ICARIES provides a dynamic platform for researchers, academics, industry professionals, and policymakers to exchange ideas, present their latest research findings, and explore innovative solutions in the realms of intelligent computing and sustainable technology. This interdisciplinary conference aims to foster collaboration and knowledge sharing across a range of specialized tracks.</p>
+            <p>ICARIES 2026 is organized in hybrid mode, bolstering the global presence of the event. Delegates will be able to decide whether to attend physically or virtually. We look forward to meeting you at Silicon University, Odisha or virtually.</p>
+            <div class="welcome-quote">All accepted and presented papers will be submitted for inclusion in the <strong>ICARIES Xplore</strong> digital library subject to meeting ICARIES Xplore's standards for scope and/or quality requirements.</div>
           </div>
         </div>
       </div>
