@@ -233,32 +233,61 @@ sup {
 
 .hamburger {
   display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 95, 212, .16);
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 10px 22px rgba(15, 35, 80, .10);
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  padding: 4px
+  padding: 0;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.hamburger:hover,
+.hamburger:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(15, 35, 80, .15);
 }
 
 .hamburger span {
+  position: absolute;
+  left: 50%;
   display: block;
-  width: 22px;
+  width: 19px;
   height: 2px;
   background: var(--text);
-  border-radius: 2px;
-  transition: transform .22s ease, opacity .18s ease;
+  border-radius: 999px;
+  transition: transform .22s ease, opacity .18s ease, background .2s ease;
   transform-origin: center;
 }
 
+.hamburger span:nth-child(1) {
+  transform: translate(-50%, -6px);
+}
+
+.hamburger span:nth-child(2) {
+  transform: translate(-50%, 0);
+}
+
+.hamburger span:nth-child(3) {
+  transform: translate(-50%, 6px);
+}
+
 .hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg)
+  transform: translate(-50%, 0) rotate(45deg);
 }
 
 .hamburger.open span:nth-child(2) {
-  opacity: 0
+  opacity: 0;
 }
 
 .hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg)
+  transform: translate(-50%, 0) rotate(-45deg);
 }
 
 #mobile-nav {
@@ -268,42 +297,45 @@ sup {
   left: 0;
   right: 0;
   z-index: 999;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: .8rem 1.5rem;
-  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, .98);
+  border-bottom: 1px solid rgba(26, 95, 212, .12);
+  padding: 1rem 1.25rem 1.2rem;
+  box-shadow: 0 18px 50px rgba(15, 35, 80, .12);
+  backdrop-filter: blur(18px);
 }
 
 #mobile-nav.open {
-  display: block
+  display: block;
 }
 
 #mobile-nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: .2rem
+  gap: .65rem;
 }
 
 #mobile-nav ul a {
   display: block;
-  padding: .6rem 1rem;
-  font-size: .88rem;
+  padding: .9rem 1.1rem;
+  font-size: .95rem;
   font-weight: 700;
-  color: var(--blue);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all .18s;
+  color: var(--text);
+  border-radius: 14px;
+  background: #f6f8ff;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-#mobile-nav ul a:hover {
+#mobile-nav ul a:hover,
+#mobile-nav ul a:focus-visible {
   color: var(--blue);
-  background: var(--blue-light)
+  background: rgba(26, 95, 212, .08);
+  transform: translateX(3px);
 }
 
 #mobile-nav ul a.active {
-  color: var(--blue);
-  background: transparent
+  color: #fff;
+  background: var(--blue);
 }
 
 .mobile-nav-group {
@@ -1949,6 +1981,10 @@ sup {
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+
+    .program-tracks-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media(max-width:768px) {
@@ -1962,6 +1998,31 @@ sup {
 
     .hamburger {
       display: flex
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr
+    }
+
+    .program-tracks-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .program-track-card {
+      padding: 1.35rem;
+    }
+
+    .subpage-hero {
+      padding: 3rem 1rem 2rem;
+    }
+
+    .subpage-hero-inner-centered {
+      padding: 0 1rem;
+    }
+
+    .subpage-hero-inner-centered p {
+      max-width: 100%;
     }
 
     .contact-grid {
@@ -1990,8 +2051,25 @@ sup {
     .dates-grid,
     .speakers-grid,
     .members-grid,
-    .topics-grid {
+    .topics-grid,
+    .program-tracks-grid {
       grid-template-columns: 1fr
+    }
+
+    .program-track-card {
+      padding: 1.25rem;
+    }
+
+    .subpage-hero {
+      padding: 2.25rem 0 1.75rem;
+    }
+
+    .subpage-hero-inner-centered .sec-title {
+      font-size: clamp(1.4rem, 7vw, 2.1rem);
+    }
+
+    .program-intro {
+      margin: 1rem auto 1.5rem;
     }
 
     .footer-grid {

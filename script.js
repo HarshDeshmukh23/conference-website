@@ -142,7 +142,7 @@ function renderNavbar() {
           <li><a href="/" data-goto-page="venue">Venue</a></li>
           <li><a href="/" data-goto-page="contact">Contact</a></li>
         </ul>
-        <button class="hamburger" id="hamburger" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="hamburger" id="hamburger" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -636,8 +636,8 @@ function renderFooter() {
           <div class="footer-col">
             <h4>Contact Us</h4>
             <div class="footer-c-item">${IC.loc}<span>Prof. Ram Meghe Institute of Technology and Research, Badnera-Amravati, MH, India</span></div>
-            <div class="footer-c-item">${IC.mail}<span>principal@mitra.ac.in</span></div>
-            <div class="footer-c-item">${IC.phone}<span>0721-2681246</span></div>
+            <div class="footer-c-item">${IC.mail}<span>auchaudhari@mitra.ac.in</span></div>
+            <div class="footer-c-item">${IC.phone}<span>9021117416</span></div>
           </div>
         </div>
         <div class="footer-bottom">
@@ -755,6 +755,7 @@ function bindNavEvents() {
     const open = mobileNav.classList.toggle('open');
     ham.classList.toggle('open', open);
     ham.setAttribute('aria-expanded', open);
+    ham.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
 
   // nav brand
@@ -762,6 +763,8 @@ function bindNavEvents() {
     goSection('home');
     mobileNav.classList.remove('open');
     ham.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    ham.setAttribute('aria-label', 'Open menu');
   });
 
   // close mobile nav on any nav link click
@@ -769,6 +772,7 @@ function bindNavEvents() {
     mobileNav.classList.remove('open');
     ham.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
+    ham.setAttribute('aria-label', 'Open menu');
   };
 
   document.querySelectorAll('#navbar [data-goto-page], #mobile-nav [data-goto-page]').forEach(el => {
