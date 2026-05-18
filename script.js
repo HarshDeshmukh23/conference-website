@@ -14,17 +14,17 @@ async function loadData() {
 
 // ── ASSETS ───────────────────────────────────────────────
 const ASSETS = {
-  logo:         './assets/logo-BPdPH9Dx.jpeg',
-  prmitr:       './assets/prmitr-BLyWrH2Y.webp',
-  ambadevi:     './assets/ambadevi-BsjQAcD0.jpg',
-  chikhaldara:  './assets/chikhaldara-B_Czf_wQ.png',
-  melghat:      './assets/melghat-CmoalLtJ.png',
-  upperwardha:  './assets/upperwardha-CtQf7VL6.png',
-  shegao:       './assets/shegao-BNuweD0Y.jpg',
-  semadoh:      './assets/semadoh-BW-rUD58.jpg',
-  connectivity: './assets/connectivity-DCiJDpmq.png',
-  landmark:     './assets/landmark-ekEQ7P5j.avif',
-  primePark:    './assets/prime-park-YgN_Gzow.avif',
+  logo:         './assets/logo.jpeg',
+  prmitr:       './assets/prmitr.webp',
+  ambadevi:     './assets/ambadevi.jpg',
+  chikhaldara:  './assets/chikhaldara.png',
+  melghat:      './assets/melghat.png',
+  upperwardha:  './assets/upperwardha.png',
+  shegao:       './assets/shegao.jpg',
+  semadoh:      './assets/semadoh.jpg',
+  connectivity: './assets/connectivity.png',
+  landmark:     './assets/landmark.avif',
+  primePark:    './assets/prime-park.avif',
 };
 
 // ── SVG ICONS ────────────────────────────────────────────
