@@ -1083,6 +1083,12 @@ sup {
     color: #fff;
   }
 
+  .footer-credit {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.16);
+    margin-top: 6px;
+  }
+
   /* Responsive Fix for Footer */
   @media(max-width: 1024px) {
     .footer-grid {

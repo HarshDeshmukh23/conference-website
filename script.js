@@ -1490,7 +1490,7 @@ function renderFooter() {
           <div class="footer-bottom-inner" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
             <div style="display:flex;flex-direction:column;">
               <span>© 2026 ICARIES — Prof. Ram Meghe Institute of Technology &amp; Research, Badnera. All rights reserved.</span>
-              <span style="font-size:0.72rem;color:rgba(255,255,255,0.22);margin-top:4px;font-weight:500">Developed by Amruta Topale and Harsh Deshmukh</span>
+              <span class="footer-credit">Developed by Amruta Topale and Harsh Deshmukh</span>
             </div>
             <div style="display:flex;gap:1rem;align-items:center;">
               <a href="#" class="footer-link">Privacy Policy</a>
